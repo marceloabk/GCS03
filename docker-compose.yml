@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: ./boot.sh
+    volumes:
+      - $PWD:/usr/app
+    ports:
+      - 8001:8000
+    depends_on:
+      - db    
+  db:
+    image: postgres
